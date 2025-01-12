@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OTP in JS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+
+        body {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+
+        .form {
+            width: 80%; /* Adjust the width as needed */
+            max-width: 500px; /* Add a maximum width for larger screens */
+            background-color: #eeeeee;
+            padding: 0 15px; /* Adjust padding for smaller screens */
+            display: grid;
+            gap: 20px;
+            padding-bottom: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .otpverify {
+            width: 100%;
+            display: flex;
+            flex-direction: column; /* Adjust layout for smaller screens */
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 10px;
+            background-color: #82eec1;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%; /* Make the button full-width */
+        }
+
+        @media screen and (max-width: 600px) {
+            .form {
+                width: 90%; /* Adjust the width for smaller screens */
+            }
+        }
+
+        .otpverify {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form">
+    <h1>OTP Using JavaScript</h1>
+
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <input type="text" id="username" name="username" placeholder="Username"><br>
+    <input type="password" id="password" name="password" placeholder="Password"><br>
+
+    <div class="otpverify">
+        <input type="text" id="otp_inp" placeholder="Enter the OTP sent to your Email...">
+        <button type="button" class="btn" id="otp-btn">Verify</button>
+    </div>
+
+    <button type="button" class="btn" onclick="sendOTP()">Send OTP</button>
+</form>
+
+</div>
+
+<script>
+    function sendOTP() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const otpverify = document.getElementsByClassName('otpverify')[0];
+
+        // Validate username and password (you may want to add more robust validation)
+        if (!username || !password) {
+            alert("Please enter both username and password.");
+            return;
+        }
+
+        // Fetch user's email based on the provided username and password
+        fetch('getuseremail.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
+        })
+        .then(response => response.text())
+        .then(userEmail => {
+            if (userEmail.trim() !== "") {
+                // Generate OTP only if the user is authenticated
+                let otp_val = Math.floor(Math.random() * 10000);
+
+                // Send OTP to the user's email using SMTPJS
+                let emailbody = `<h2>Your OTP is </h2>${otp_val}<br/><p>Next step password: subscribe_akashdip</p>`;
+                Email.send({
+                    SecureToken: "f1fd93e4-78df-4474-8db5-80daf880c520",
+                    To: userEmail,
+                    From: "mail.me.akashdip2001@gmail.com",
+                    Subject: "Email OTP for FreecadApp",
+                    Body: emailbody,
+                }).then(message => {
+                    if (message === "OK") {
+                        alert("OTP sent to the user's email: " + userEmail);
+
+                        otpverify.style.display = "flex";
+                        const otp_inp = document.getElementById('otp_inp');
+                        const otp_btn = document.getElementById('otp-btn');
+
+                        otp_btn.addEventListener('click', () => {
+                            if (otp_inp.value == otp_val) {
+                                alert("Email address verified...");
+                            } else {
+                                alert("Invalid OTP");
+                            }
+                        });
+                    }
+                });
+            } else {
+                alert("Invalid username or password.");
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching user email:', error);
+        });
+    }
+</script>
+
+</body>
+</html>

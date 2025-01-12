@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warning</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }
+  .warning-container {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #ffc107;
+    border: 2px solid #ff9800;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  h1 {
+    color: #ff5722;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  p {
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .countdown {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  .loading {
+    margin-top: 20px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #333;
+    border-radius: 50%;
+    border-top-color: #ffc107;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  /* Additional styling for links */
+  a {
+    text-decoration: none;
+    text-align: center;
+    color: red; /* Set text color for links */
+    animation: blink 1s infinite; /* Blinking effect */
+    padding-left: 35px;
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="warning-container">
+    <h1>Warning</h1>
+    <p>Due to some maintenance the server was closed for some time.</p>
+    <div class="countdown" id="countdown"></div>
+    <div class="loading"></div>
+  </div>
+
+  <a href="https://sites.google.com/view/freecadapp-downlod/home" class="app-update-link">App update available - 14/02/2024</a>
+
+  <script>
+    // Countdown timer
+    var countDownDate = new Date();
+    countDownDate.setHours(countDownDate.getHours() + 2); // Set countdown to 2 hours from now
+
+    var countdownElement = document.getElementById("countdown");
+
+    var countdownInterval = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+      if (distance < 0) {
+        clearInterval(countdownInterval);
+        countdownElement.innerHTML = "EXPIRED";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
