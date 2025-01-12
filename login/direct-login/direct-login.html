@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password Protected Page</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-color: black;
+    transition: background-image 0.5s ease; /* Smooth transition */
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  input[type="password"] {
+    width: 92%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .back-button {
+    margin-top: 20px;
+    background-color: #dc3545; /* Red color for contrast */
+     border-radius: 6px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .back-button a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 10px;
+  }
+
+  .back-button:hover {
+    background-color: #c82333; /* Darker red color on hover */
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <form id="passwordForm" onsubmit="checkPassword(); return false;">
+    <input type="password" id="passwordInput" placeholder="Enter root password..." required>
+    <button type="submit">Submit</button>
+  </form>
+  <div class="back-button">
+    <a href="javascript:history.back()">Back</a>
+  </div>
+</div>
+<script>
+var backgrounds = ["../../app-web/freecad-videos/source_code/img/1.jpg","../../app-web/freecad-videos/source_code/img/2.jpg","../../app-web/freecad-videos/source_code/img/3.jpg","../../app-web/freecad-videos/source_code/img/4.jpg", ]; // Add more image URLs if needed
+var currentIndex = 0;
+
+function changeBackground() {
+  document.body.style.backgroundImage = "url('" + backgrounds[currentIndex] + "')";
+  currentIndex = (currentIndex + 1) % backgrounds.length;
+}
+
+setInterval(changeBackground, 2000);
+
+function checkPassword() {
+  var password = document.getElementById("passwordInput").value;
+  if (password === "passward-999") {
+    window.location.href = "option.php";
+  } else {
+    window.location.href = "../../app-web/freecad-videos/404.html";
+  }
+}
+</script>
+</body>
+</html>
+
