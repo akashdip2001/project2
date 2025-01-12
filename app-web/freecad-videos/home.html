@@ -32,7 +32,7 @@
  <div class="Action-button" >
   <div>
     <!-- Make the "Join" button clickable -->
-    <a href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ?sub_confirmation=1" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+    <a href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ?sub_confirmation=1" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded btn-4">
       subscribe
     </a>
     <!-- <button class="ml-2 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
@@ -44,13 +44,13 @@
 
   <style>
     /* Action buttons */
-  .Action-button {
+  /* .Action-button {
     margin-top: 5%;
-  }
+  } */
 
   @media (max-width: 768px) {
     .Action-button {
-      margin-top: 27%;
+      margin-top: 18%;
     }
   }
 
@@ -63,8 +63,7 @@
 
      
    /* Glowing effect */
-  
-.Action-button a.glow,
+/*.Action-button a.glow,
 nav a.glow {
   position: relative;
   display: inline-block;
@@ -84,14 +83,51 @@ nav a.glow {
   50% {
     box-shadow: 0 0 20px #FFD700;
   }
-}
+}*/
+
+/* button keyframe Animation */
+.btn-4 {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .btn-4 span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-4:after {
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: -150px;
+            width: 50px;
+            height: 155px;
+            background: #fff;
+            opacity: 0.2;
+            transform: rotate(35deg);
+            animation: slideIn 4s infinite cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        @keyframes slideIn {
+            0% {
+                left: -150px; /* Adjusted initial left position */
+            }
+            40% {
+                left: 120%;
+            }
+            90% {
+                left: -150%;
+            }  
+        }
 
   </style>
 
 <!-- Navigation menu -->
 <nav class="flex justify-around bg-gray-900 p-2">
   <a href="#" class="text-white">Home</a>
-  <a href="note.html" class="text-white glow">Videos</a>
+  <a href="freecad_loding.html" class="text-white glow">Videos</a> <!-- note.html-->
   <a href="contact.html" class="text-white">Contact</a>
   <!-- More nav items -->
 </nav>
@@ -120,7 +156,11 @@ nav a.glow {
 
    <section id="videos">
         <h2> Play list</h2>
-     
+
+        <div class="video-card1">
+            <iframe src="https://www.youtube.com/embed/ySJt3QGyr9w" frameborder="0" allowfullscreen></iframe>
+          <a class="u-link" href="#" target="_blank">&nbspset up Min-GW </a>
+        </div>
         <div class="video-card1">
             <iframe src="https://www.youtube.com/embed/6d8VCqbf-pc" frameborder="0" allowfullscreen></iframe>
           <a class="u-link" href="#" target="_blank">&nbspset up Min-GW </a>
@@ -144,6 +184,30 @@ nav a.glow {
         <div class="video-card1">
             <iframe src="https://www.youtube.com/embed/JHugCa7PBYM" frameborder="0" allowfullscreen></iframe>
           <a class="u-link" href="#" target="_blank">&nbspiOT </a>
+        </div>
+        <div class="video-card1">
+            <iframe src="https://www.youtube.com/embed/Buu_RCabwtM" frameborder="0" allowfullscreen></iframe>
+          <a class="u-link" href="#" target="_blank">&nbspset up Min-GW </a>
+        </div>
+        <div class="video-card1">
+            <iframe src="https://www.youtube.com/embed/Pg2x_eCD7qU" frameborder="0" allowfullscreen></iframe>
+          <a class="u-link" href="#" target="_blank">&nbspset up Min-GW </a>
+        </div>
+        <div class="video-card1">
+            <iframe src="https://www.youtube.com/embed/eNjRqzVrGUI" frameborder="0" allowfullscreen></iframe>
+          <a class="u-link" href="#" target="_blank">&nbspset up Min-GW </a>
+        </div>
+        <div class="video-card1">
+            <iframe src="https://www.youtube.com/embed/UHPO1xG1MB0" frameborder="0" allowfullscreen></iframe>
+          <a class="u-link" href="#" target="_blank">&nbspset up Min-GW </a>
+        </div>
+        <div class="video-card1">
+            <iframe src="https://www.youtube.com/embed/-5M5gWGpWoE" frameborder="0" allowfullscreen></iframe>
+          <a class="u-link" href="#" target="_blank">&nbspset up Min-GW </a>
+        </div>
+        <div class="video-card1">
+            <iframe src="https://www.youtube.com/embed/9fNjJN3dzpg" frameborder="0" allowfullscreen></iframe>
+          <a class="u-link" href="#" target="_blank">&nbspset up Min-GW </a>
         </div>
 
   
