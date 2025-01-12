@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>app notice</title>
+   <link rel="icon" href="https://raw.githubusercontent.com/akashdip2001/website-2/main/images/favicon.jpg?token=GHSAT0AAAAAACMGYPVOP4ZUPUDP4Q2FKSEWZNNHMWA">
+
+  <style>
+     * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+      background: rgb(20, 20, 20);
+    }
+
+    .btn {
+      font-family: sans-serif;
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2.8px;
+      background-color: #1b8bf9;
+      padding: 15px 50px;
+      border-radius: 5rem;
+      box-shadow: 1px 2.9px 16px rgba(27, 139, 249, 0.4);
+      transition: 0.6s cubic-bezier(0.01, 1.69, 0.99, 0.94);
+      bottom: 10px;
+    }
+
+    
+
+    .btn:hover {
+      box-shadow: 3px 4.9px 16px rgba(27, 139, 249, 0.6);
+      letter-spacing: 5px;
+    }
+
+    .btn--clicked {
+      transition: 0.6s cubic-bezier(0.01, 1.69, 0.99, 0.94);
+      padding: 15px 2px;
+      width: 50px;
+      color: transparent;
+      z-index: -10;
+    }
+
+    .color {
+      display: block;
+      width: 0;
+      height: 0;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      transition: 0.8s ease;
+      border-radius: 50%;
+      background-color: transparent;
+    }
+
+    .expanded {
+      width: 200%;
+      padding-bottom: 200%;
+      height: auto;
+    }
+
+    .color--blue {
+      background-color: #1b8bf9;
+      transition-delay: 0.25s;
+    }
+
+    .color--orange {
+      background-color: #ff6c19;
+      transition-delay: 0.5s;
+    }
+
+    .color--green {
+      background-color: #41ff9f;
+      transition-delay: 0.75s;
+    }
+
+    .color--white {
+      background-color: #f9f9f9;
+      transition-delay: 1s;
+    }
+
+/* Log Out button */
+.logout-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #ee4b2b;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.3s, color 0.3s, text-shadow 0.3s;
+  z-index: -1; /* Set a lower z-index for the logout button */
+}
+
+.logout-button:hover {
+  border-color: white; /* White border on hover */
+  color: #f0f0f0; /* Lighter white color on hover */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Enhanced shadow effect on hover */
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: 300;
+  background-image: linear-gradient(to left, #553c9a 30%, #ee4b2b 40%, #ee4b2b 70%, #00c2cb 80%, #553c9a);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+p {
+  font-size: 20px;
+  font-weight: 100;
+  color: #553c9a;
+  }
+
+  </style>
+</head>
+<body>
+
+   <a href="http://freecadapp2.000.pe/login/login-noSkip.php" class="logout-button">Log Out</a>
+<br>
+  <h1>⚠️WARNING⚠️</h1>
+  
+  <p><br><br><br>for 1st year - তোরা আমার video দেখে FreeCAD করছিস, that's good. But তা বলে class এ sir এর কথা শুনবি না , এটা ঠিক নয়, "Akash da এর video দেখে নেবো - class এ বোঝার দরকার নেই" - এটা কী ধরনের behaviour ? <br><br>
+  এমন behaviour এর জন্যে sir রা আমাকে অনেক কথা শুনিয়েছে  ..... so আমাকে youtube থেকে সব video সরিয়ে নিয়ে হয়েছে, এই website এই last আছে <br><br>
+  Plz এই webaite টা যেন জানাজানি না হয় , না হলে মনে হয়না আমাকে আর college এ রাখবে 😅<br><br>🙏 So please 🙏<br><br>কেউ কীছু ask করলে বলবি "আকাশ da সব video delete করে দিয়েছে<br><br><br><br></p>
+
+  <!-- <a href="exam_loding.html" id="continueButton">Continue</a> -->
+
+  <a href="exam_loding.html" class="btn" title="Button">
+    Button
+    <span class="color color--blue" data-value="1"></span>
+    <span class="color color--orange" data-value="1"></span>
+    <span class="color color--green" data-value="1"></span>
+    <span class="color color--white" data-value="1"></span>
+  </a>
+  
+   <script src="script.js"></script>
+   <script>
+    function isMobile() {
+      return window.innerWidth <= 768;
+    }
+  
+    function isDesktop() {
+      return window.innerWidth > 768; // Adjust the width based on your design
+    }
+  
+    window.addEventListener('DOMContentLoaded', function() {
+      // Blur the page if on mobile
+      if (isMobile()) {
+        document.body.style.filter = "blur(25px)";
+        document.body.style.pointerEvents = "none";
+  
+        var currentDate = new Date();
+        var passwordDay = currentDate.getDate();
+        var password = "akashdip100" + passwordDay + "note";
+  
+        var enteredPassword = prompt("✔️ Please enter the password: note pg");
+  
+        if (enteredPassword !== password) {
+          window.location.href = "404.html";
+        } else {
+          document.body.style.filter = "";
+          document.body.style.pointerEvents = "";
+        }
+      }
+  
+      // Blur the page if on desktop
+      if (isDesktop()) {
+        document.body.style.filter = "blur(25px)";
+        document.body.style.pointerEvents = "none";
+      }
+  
+      // Redirect to 404.html if on desktop
+      if (isDesktop()) {
+        redirectToAnotherPage();
+      }
+  
+      // Show alert if on mobile
+      if (isMobile()) {
+        setTimeout(function() {
+          alert('যেটা লেখা আছে একবার ভালোকরে পড়\nplease read this carefully');
+        }, 5000); // 5000 milliseconds = 5 seconds
+      }
+  
+      // Button click animation and redirection
+      const button = document.querySelector('.btn');
+      button.addEventListener('click', () => {
+        document.querySelectorAll('span').forEach((element) => {
+          element.classList.add('expanded');
+        });
+  
+        setTimeout(() => {
+          window.location.href = 'exam_loding.html';
+        }, 3500);
+      });
+    });
+  </script>  
+  
+</body>
+</html>

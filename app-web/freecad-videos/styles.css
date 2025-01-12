@@ -1,0 +1,220 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #e04677; /* YouTube red color */
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+h1 {
+    margin: 0;
+}
+
+#videos {
+    margin: 20px;
+}
+
+.video-card {
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+
+h3 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+p {
+    color: #777;
+}
+
+footer {
+    background-color: #e04677;
+    color: #fafafa;
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* Add these styles to remove underlines from specific links */
+        .Action-button a,
+        .video-card a.u-link,
+        .footer a.u-link,
+        .video-card a.u-link,
+        footer a.u-link {
+            text-decoration: none;
+        }
+
+
+
+/* Mobile styles */
+@media (max-width: 768px) {
+
+    html, body{
+
+       width: 100%;
+       height: 100%;
+       margin: 0; 
+       padding: 0;
+       overflow-x: hidden;
+    }
+       
+    
+    .video-card {
+        width: 100%;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto; /* for responsive behavior */
+        max-height: 315px; 
+    }
+
+
+    #sidebar {
+        display: none;
+    }
+
+
+    .video-card a.u-link,
+    footer a.u-link {
+        color: white;
+    }
+}
+
+
+
+/* Button styles for mobile */
+.button {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #8243b8;
+    color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
+/* Styles for the image slider */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    flex: 0 0 100%;
+    text-align: center;
+}
+
+.slide img {
+    max-width: 100%;
+}
+
+.caption {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Styles for the indicators and controls */
+.indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #888;
+    margin: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.controls {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Styles for active indicator */
+.active {
+    background-color: #333;
+}
+
+/* Styles for previous and next buttons */
+.prev, .next {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.prev {
+    margin-right: 10px;
+}
+
+
+
+/* freecad.html */
+/* Add this style for the navy blue button */
+.navy-button {
+    background-color: #870b32 !important; /* pink color */
+    color: #fff !important; /* White text color */
+    padding: 10px 20px !important; /* Adjust padding as needed */
+    text-decoration: none !important;
+    border-radius: 5px !important;
+    display: inline-block !important;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.navy-button:hover {
+    background-color: #003366 !important; /* Darker shade on hover */
+}
+
+.logout-button {
+  display: block; /* Show the button by default */
+  position: fixed;
+  top: 20px; /* Default position */
+  right: 20px;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Transparent white border */
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* Shadow effect */
+  transition: border-color 0.3s, color 0.3s, text-shadow 0.3s;
+   z-index: 1; /* Set a lower z-index for the logout button */
+}
+
+.logout-button:hover {
+  border-color: white; /* White border on hover */
+  color: #f0f0f0; /* Lighter white color on hover */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Enhanced shadow effect on hover */
+}

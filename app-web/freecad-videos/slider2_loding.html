@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Loading Page</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #333; /* Dark background color */
+        color: #fff; /* Light text color */
+    }
+
+    #loading-container {
+        width: 80%;
+        max-width: 300px;
+        text-align: center;
+        background-color: #333; /* Dark container background color */
+        padding: 20px;
+        border-radius: 8px;
+        position: relative;
+        box-shadow: none;
+    }
+
+    #loading-bar {
+        width: 0;
+        height: 20px;
+        background: linear-gradient(90deg, #3498db, #87CEEB); /* Gradient for lighting effect */
+        border-radius: 4px;
+        transition: width 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
+    }
+
+    #loading-light {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.5) 0%, transparent 70%); /* Lighting effect */
+    }
+
+    #welcome-heading {
+        font-size: 1.5em; /* Adjust font size for better visibility on smaller screens */
+        margin-top: 20px; /* Add some space between loading bar and headline */
+    }
+
+    @media (max-width: 600px) {
+        #loading-container {
+            width: 90%;
+        }
+    }
+
+    /* Log Out button - only appear at mobile */
+    .logout-button {
+  display: none; /* Hide the button by default */
+}
+
+@media only screen and (max-width: 768px) {
+  .logout-button {
+    display: block; /* Show the button on screens smaller than 768px (typically mobile screens) */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Transparent white border */
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    transition: border-color 0.3s, color 0.3s, text-shadow 0.3s;
+  }
+
+  .logout-button:hover {
+    border-color: white; /* White border on hover */
+    color: #f0f0f0; /* Lighter white color on hover */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Enhanced shadow effect on hover */
+  }
+}
+    </style>
+        
+  
+</head>
+<body>
+
+    <a href="http://freecadapp2.000.pe/login/login-noSkip.php" class="logout-button">Log Out</a>
+  
+  <div id="loading-container">
+        <div id="loading-bar">
+            <div id="loading-light"></div>
+        </div>
+        <h1 id="welcome-heading">Loding... slider 2</h1>
+  </div>
+  
+    <div id="loading-container">
+        <div id="loading-bar">
+            <div id="loading-light"></div>
+        </div>
+    </div>
+
+    <script>
+        let progress = 0;
+
+        function updateLoading() {
+            const loadingBar = document.getElementById('loading-bar');
+            loadingBar.style.width = `${progress}%`;
+
+            if (progress < 100) {
+                progress++;
+                setTimeout(updateLoading, 30);
+            } else {
+                // Redirect based on device type
+                const isDesktop = window.innerWidth > 600; // Adjust the breakpoint as needed
+                const redirectPage = isDesktop ? '404.html' : 'slider2.html';
+
+                setTimeout(() => {
+                    window.location.href = redirectPage;
+                }, 1500); // Redirect after 1.5 seconds
+            }
+        }
+
+        updateLoading();
+
+
+      function updateFlicker() {
+    const welcomeHeading = document.getElementById('welcome-heading');
+    welcomeHeading.style.opacity = 1; // Set opacity to a constant value
+
+    // Remove the setTimeout call to stop the flickering
+      }
+    </script>
+</body>
+</html>

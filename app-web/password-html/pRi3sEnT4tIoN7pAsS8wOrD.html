@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protection</title>
+     <link rel="icon" href="https://raw.githubusercontent.com/akashdip2001/website-2/main/images/favicon.jpg?token=GHSAT0AAAAAACMGYPVOP4ZUPUDP4Q2FKSEWZNNHMWA">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            transition: background-color 0.5s ease;
+            position: relative;
+            min-height: 100vh; /* Ensure the body covers at least the full viewport height */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1, form {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto; /* Add margin for better spacing */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;   
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #CCCCCC;
+            color: #333;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ddd;
+            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+        }
+
+        .lock-icon {
+            position: fixed;
+            bottom: 20px;
+            left: 46%;
+            transform: translateX(-50%);
+            font-size: 24px; /* Adjust the font size,because the icon is too small */
+            width: 30px;
+            height: 40px;
+            background-color: #fff;
+            border-radius: 5px 5px 0 0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            form {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Password Protection</h1>
+
+    <form id="passwordForm">
+        <label for="password">Enter Password:</label>
+        <input type="password" id="password" required>
+        <button type="button" onclick="checkPassword()">Submit</button>
+    </form>
+
+    <div class="lock-icon">🔒</div>
+
+    <script>
+        function checkPassword() {
+            var enteredPassword = document.getElementById('password').value;
+            var correctPassword = 'subscribe_akashdip';
+            var body = document.body;
+
+            if (enteredPassword === correctPassword) {
+                body.style.backgroundColor = '#27ae60'; // Green for correct password
+                setTimeout(() => {
+                    window.location.href = '../custom-player-9-16/';
+                }, 500); // Redirect after 0.5 seconds
+            } else {
+                body.style.backgroundColor = '#e74c3c'; // Red for wrong password
+                setTimeout(() => {
+                    window.location.href = 'pRi3sEnI4tIoN7pAsS8wOrD.html';
+                }, 500); // Redirect after 0.5 seconds
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exam</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.3/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="https://raw.githubusercontent.com/akashdip2001/website-2/main/images/favicon.jpg?token=GHSAT0AAAAAACMGYPVOP4ZUPUDP4Q2FKSEWZNNHMWA">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #e04677;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    h3 {
+      color: #434a75;
+    }
+
+    #videos {
+      margin: 20px;
+    }
+
+    /* Add this style for video cards */
+.video-card1 {
+    background: #0a0d1c;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    padding: 15px;
+    width: calc(100% - 10px); /* Adjust width for 4x2 grid with margin */
+    height: 200px; /* Set a fixed height for better visibility */
+    overflow: hidden; /* Hide overflow content */
+}
+
+
+    /* Add this style for video iframes */
+.video-card1 iframe {
+    width: 100%;
+    height: 100%;
+   
+}
+
+    .video-card1 h3 {
+  color: #333; /* Change this color to the desired text color */
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+
+    p {
+      color: #777;
+    }
+
+    footer {
+      background-color: #e04677;
+      color: #fafafa;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .Action-button a,
+    .video-card1 a.u-link,
+    footer a.u-link {
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      .video-card1 {
+        width: 100%;
+      }
+
+      iframe {
+        width: 100%;
+        height: auto;
+        max-height: 315px;
+      }
+
+      #sidebar {
+        display: none;
+      }
+
+      .video-card1 a.u-link,
+      footer a.u-link {
+        color: white;
+      }
+    }
+
+
+    .indicators {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .indicator {
+      width: 10px;
+      height: 10px;
+      background-color: #888;
+      margin: 0 5px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+
+    /* Styles for the image slider */
+.slider-container {
+  max-width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 33.33%;
+  box-sizing: border-box;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.slide img {
+  max-width: 100%;
+}
+
+.caption {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.controls {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.prev,
+.next {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.active {
+  background-color: #333;
+}
+
+@media (max-width: 768px) {
+  .slide {
+    flex: 0 0 100%;
+  }
+}
+
+    
+
+    .navy-button {
+      background-color: #870b32 !important;
+      color: #fff !important;
+      padding: 10px 20px !important;
+      text-decoration: none !important;
+      border-radius: 5px !important;
+      display: inline-block !important;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .navy-button:hover {
+      background-color: #003366 !important;
+    }
+  </style>
+</head>
+<body class="bg-gray-800 text-white">
+  <!-- Top bar with banner image -->
+  <div class="bg-cover bg-center h-32" style="background-image: url('https://user-images.githubusercontent.com/81384987/236854925-8284fc07-b28b-41eb-a00d-3b9a1b75cf43.png');">
+    <!-- Insert additional elements here if needed -->
+  </div>
+
+  <!-- Profile and actions section -->
+  <div class="flex items-center justify-between p-4">
+    <div class="flex items-center">
+      <img class="h-24 w-24 rounded-full mr-4" src="https://thumbnails.odycdn.com/optimize/s:200:0/quality:95/plain/https://thumbs.odycdn.com/bf58cf4d7ec52c62f02c52e16f150a5b.webp" alt="Profile image">
+      <div>
+        <h1 class="text-2xl font-bold">AKASHDIP MAHAPATRA</h1>
+        <p>"everything is physics bro"</p>
+        <p>E=mc²</p>
+      </div>
+    </div>
+    <!-- Action buttons -->
+    <div class="Action-button">
+      <div>
+        <!-- Make the "Join" button clickable -->
+        <a href="https://www.youtube.com/channel/UCxvmp634YDc41xCWOdvWqoQ?sub_confirmation=1" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+          subscribe
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation menu -->
+  <nav class="flex justify-around bg-gray-900 p-2">
+    <a href="homePC.html" class="text-white">Home</a>
+    <a href="#" class="text-white glow">FreeCAD</a>
+    <a href="contactPC.html" class="text-white">Contact</a>
+    <!-- More nav items -->
+  </nav>
+
+  <!-- Main content area -->
+  <main class="p-4">
+    <!-- Sections like 'For You', 'Projects', etc. -->
+    <!-- Example section with YouTube video link and autoplay -->
+    <section class="mb-4">
+      <h2 class="text-xl font-semibold mb-2">These Videos are private on YouTube, so only here</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- Video Card 1 -->
+        <div class="video-card1">
+          <iframe src="https://www.youtube.com/embed/AEapOLzwDlo" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts">></iframe>
+          <h3></h3>
+          <p></p>
+        </div>
+        <!-- Video Card 2 -->
+        <div class="video-card1">
+          <iframe src="https://www.youtube.com/embed/G_-RKd5QujQ" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+          <h3></h3>
+          <p></p>
+        </div>
+        <!-- Video Card 3 -->
+        <div class="video-card1">
+          <iframe src="https://www.youtube.com/embed/Y-vqlJi7JQM" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+         <h3></h3>
+          <p></p>
+        </div>
+        <!-- Video Card 4 -->
+        <div class="video-card1">
+         <iframe src="https://www.youtube.com/embed/8bYnkPCVelQ" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+         <h3></h3>
+          <p></p>
+        </div>
+        <!-- Video Card 5 -->
+        <div class="video-card1">
+         <iframe src="https://www.youtube.com/embed/wLd-LnNEWPA" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+             <a class="u-link" href="../zOmBiE6aPoCaLyPsE/sLeEpY3pAnDrReAm.html">
+         <h3>All Videos - click here</h3> </a>
+          <p></p>
+        </div>
+        <!-- Video Card 6 -->
+        <div class="video-card1">
+          <iframe src="https://www.youtube.com/embed/6u1LM-Xrc4Q" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+         <h3>&nbspiOT</h3>
+          <p></p>
+        </div>
+        <!-- Video Card 7 -->
+        <div class="video-card1">
+         <iframe src="https://www.youtube.com/embed/ePrW4PI6pBg" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+         <h3>&nbspiOT</h3>
+          <p></p>
+        </div>
+        <!-- Video Card 8 -->
+        <div class="video-card1">
+         <iframe src="https://www.youtube.com/embed/Ke_xbpOnHBc" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+        <h3>&nbspiOT</h3>
+          <p></p>
+        </div>
+        <!-- Video Card 9 -->
+        <div class="video-card1">
+         <iframe src="https://www.youtube.com/embed/ggYK0ajSaD8" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+        <h3>&nbspiOT</h3>
+          <p></p>
+        </div>
+        <!-- Video Card 10 -->
+        <div class="video-card1">
+         <iframe src="https://www.youtube.com/embed/4HNjJ-4u0kI" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+         <h3>&nbspiOT</h3>
+          <p></p>
+        </div>
+        <!-- Video Card 11 -->
+        <div class="video-card1">
+         <iframe src="https://www.youtube.com/embed/NOnl8d9hOg8" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+        <h3>&nbspiOT</h3>
+          <p></p>
+        </div>
+        <!-- Video Card 12 -->
+        <div class="video-card1">
+          <iframe src="https://www.youtube.com/embed/cFET7qJ-sFs" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>   
+         <h3>&nbspiOT</h3>
+          <p></p>
+        </div>
+        <!-- Repeat for other videos -->
+      </div>
+    </section>
+
+    <!-- Additional sections go here -->
+
+   <!-- Image Slider -->
+<div class="slider-container">
+  <div class="slider">
+    <!-- Slide 1 -->
+    <div class="slide">
+      <a href="https://youtu.be/py_eK8z48g8">
+        <img src="img/2-01.jpeg" alt="Create Your Own Server">
+      </a>
+      <p class="caption">Create Your Own Server</p>
+    </div>
+    <!-- Slide 2 
+    <div class="slide">
+      <a href="https://youtu.be/uk5VGfzw8IU">
+        <img src="img/1-01.jpeg" alt="Wifi Hacking in Kali Linux">
+      </a>
+      <p class="caption">Wifi Hacking in Kali Linux</p>
+    </div> -->
+    <!-- Slide 3 -->
+    <div class="slide">
+      <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p-5UwLqFBFtat90L8IOc1bZ">
+        <img src="img/3-01.jpeg" alt="DIY Wifi RC Car">
+      </a>
+      <p class="caption">DIY Wifi RC Car</p>
+    </div>
+    <!-- Slide 4 -->
+    <div class="slide">
+      <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p__J3GSHkKfLjC08q0NmWtR">
+        <img src="img/4-01.jpeg" alt="IC Engine in SolidWorks">
+      </a>
+      <p class="caption">IC Engine in SolidWorks</p>
+    </div>
+    <!-- Slide 5 -->
+    <div class="slide">
+      <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p-rR-kDstljCglAQ4li-RGZ">
+        <img src="img/5-01.jpeg" alt="SolidWorks PlayList">
+      </a>
+      <p class="caption">SolidWorks PlayList</p>
+    </div>
+    <!-- Slide 6 -->
+    <div class="slide">
+      <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p90o-aY6pJXUS7FnzC2sVrk">
+        <img src="img/6-01.jpeg" alt="Stairs in SolidWorks">
+      </a>
+      <p class="caption">Stairs in SolidWorks</p>
+    </div>
+    <!-- Slide 7 -->
+    <div class="slide">
+      <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p9D9Mw3hr-uLOXioiFdPDGd">
+        <img src="img/7-01.jpeg" alt="autocad 2d playlist">
+      </a>
+      <p class="caption">autocad 2D</p>
+    </div>
+    <!-- Slide 8 -->
+    <div class="slide">
+      <a href="https://www.youtube.com/playlist?list=PL_RecMEcs_p9NEuljRr7hNsFiPASnJYQt">
+        <img src="img/8-01.jpeg" alt="autocad 3d playlist">
+      </a>
+      <p class="caption">autocad 3D</p>
+    </div>
+    <!-- Slide 9 -->
+    <div class="slide">
+      <a href="../zOmBiE6aPoCaLyPsE/vAmPiRe8bLa8RoSe.html">
+        <img src="img/9-01.jpeg" alt="Manufacturing lab AOT college">
+      </a>
+      <p class="caption">Manufacturing lab</p>
+    </div>
+    <!-- Slide 10 -->
+    <div class="slide">
+      <a href="#">
+        <img src="img/10-01.jpeg" alt="Machine Drawing And Design">
+      </a>
+      <p class="caption">Machine Drawing And Design</p>
+    </div>
+    <!-- Slide 11 -->
+    <div class="slide">
+      <a href="#">
+        <img src="img/11-01.jpeg" alt="Meteorology & Manufacturing process lab">
+      </a>
+      <p class="caption">Meteorology & Manufacturing process lab</p>
+    </div>
+    <!-- Slide 12 -->
+    <div class="slide">
+      <a href="#">
+        <img src="img/12.jpeg" alt="freecad exam">
+      </a>
+      <p class="caption">Exam</p>
+    </div>
+    <!-- Add more slides as needed -->
+  </div>
+  <!-- Navigation controls -->
+  <div class="controls">
+    <button class="prev" onclick="prevSlide()">Previous</button>
+    <button class="next" onclick="nextSlide()">Next</button>
+  </div>
+</div>
+
+  </main>
+
+
+
+  <!-- Footer section -->
+  <footer>
+    <p>&copy; 2024 Akashdip Mahapatra. All rights reserved.</p>
+  </footer>
+
+  <script>
+  let currentIndex = 0;
+  const totalSlides = document.querySelectorAll('.slide').length;
+  const slideWidth = 33.33; // Width of each slide in percentage
+
+  function nextSlide() {
+    if (currentIndex < totalSlides - 3) {
+      currentIndex++;
+      updateSlider();
+    }
+  }
+
+  function prevSlide() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlider();
+    }
+  }
+
+  function updateSlider() {
+    const translateValue = -currentIndex * slideWidth;
+    document.querySelector('.slider').style.transform = `translateX(${translateValue}%)`;
+  }
+</script>
+
+</body>
+</html>

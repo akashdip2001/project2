@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome ...</title>
+     <link rel="icon" href="https://raw.githubusercontent.com/akashdip2001/website-2/main/images/favicon.jpg?token=GHSAT0AAAAAACMGYPVOP4ZUPUDP4Q2FKSEWZNNHMWA">
+
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        .welcome-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-weight: bold;
+            font-size: 60px;
+        }
+         h2 {
+            font-weight: bold;
+            font-size: 35px;
+        }
+
+
+        .fade-in {
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(-50%);
+            }
+        }
+
+        .welcome-container.slide-in-left {
+            animation: slideInLeft 2s ease-out forwards;
+        }
+
+        @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .welcome-container.fade-out {
+        animation: fadeOut 1s ease-out forwards;
+    }
+    </style>
+</head>
+<body>
+    <div class="welcome-container fade-in" id="welcomeMessage">
+        <h1>be brave</h1>
+        <div id="secondLine"></div>
+    </div>
+
+    <script>
+        if (window.self !== window.top) {
+            // Code is running in an app
+            document.getElementById('secondLine').innerHTML = '<h2>otherwise 404 in life</h2>'; //otherwise you get 404
+        } else {
+            // Code is running in a browser
+            document.getElementById('secondLine').innerHTML = '<h2>otherwise 404 in life</h2>'; //otherwise you get 404
+            document.getElementById('welcomeMessage').classList.add('slide-in-left');
+        }
+
+
+       
+    setTimeout(function() {
+    // Wait for 2 seconds after animation
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        // Redirect to next.html if the user is on a mobile device
+        window.location.href = 'index3_loding.html';
+    } else {
+        // Redirect to 404.html for other devices
+        document.getElementById('welcomeMessage').classList.add('fade-out');
+        setTimeout(function() {
+            window.location.href = 'pRi3sEnI4tIoN7pAsS8wOrD.html';
+        }, 1000); // Adjust the duration of the fade-out animation (1s in this example)
+    }
+}, 2000);
+    </script>
+</body>
+</html>
