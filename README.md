@@ -1,6 +1,6 @@
 # project2
 
-![google play](https://github.com/user-attachments/assets/ce11ad98-2028-451e-a2be-216dce111265)
+[![google play](https://github.com/user-attachments/assets/ce11ad98-2028-451e-a2be-216dce111265)](https://play.google.com/store/apps/details?id=com.akashdipmahapatra.freecad&pcampaignid=web_share)
 ![Amazon](https://github.com/user-attachments/assets/0eaf6f99-2767-4e47-a05a-49edbb2b5e88)
 
 <div style="display: flex; justify-content: space-around; align-items: center;">
