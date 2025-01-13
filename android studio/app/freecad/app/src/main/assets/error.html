@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="leaf-animations.css">
+    <style>
+
+        * {
+            margin: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        p {
+            margin: 0;
+            margin-top: 2px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            color: #f00;
+            margin-top: 135px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            background-image: linear-gradient(-180deg, #00D775, #00BD68);
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px,
+                rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px,
+                rgba(44, 187, 99, .15) 0 16px 32px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        iframe {
+            width: 80%;
+            height: 120px;
+            max-height: auto;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .page2 {
+            display: none; /* Initially hide page2 content */
+        }
+    </style>
+</head>
+<body>
+<div class="page1">
+    <style>
+        body, html {
+                height: 100%;
+                margin: 0;
+                display: flex;
+                align-items: center;
+            }
+
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 40%;
+                animation: zoom-in-zoom-out 4s ease infinite;
+                }
+
+                @keyframes zoom-in-zoom-out {
+      0% {
+        transform: scale(0.5, 0.5);
+      }
+      15% {
+        transform: scale(1.5, 1.5);
+      }
+      50% {
+        transform: scale(0.7, 0.7);
+      }
+      100% {
+        transform: scale(1, 1);
+      }
+    }
+
+            .centered-image {
+                max-width: 50%;
+                max-height: 100%;
+            }
+    </style>
+    <!-- <p id="loadingText">Loading...</p> -->
+    <!-- <p id="countdown" style="display: none;">Redirecting in <span id="countdownValue"></span> seconds</p> -->
+
+    <div>
+        <!-- <a href="../games/Tic-Tac-Toe/index.html"> -->
+        <img class="centered-image" src="applogo.png" alt="Centered Image">
+        </a>
+    </div>
+
+</div>
+<div class="page2">
+    <div id="leaves">
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <div class="container">
+            <h1>🦖 Error</h1>
+            <p>The web page could not be loaded because:</p>
+            <p>Maybe there was any http error, like-</p>
+
+            <p style="color: #f00;margin-top: 20px;">&lt;problem&gt;</p>
+            <p style="font-size: 0.7rem;margin-right: 18px;margin-left: 18px;">Web page not available
+                The web page at http://freecadapp2.000.pe/login/register.php could not be loaded because:
+                net::ERR_HTTP_RESPONSE_CODE_FAILURE</p>
+            <p style="color: #f00;">&lt;problem&gt;</p>
+
+            <p id="error-message"></p>
+            <button class="button" onclick="retry()">Refresh the Page</button>
+            <button class="button" onclick="contactDeveloper()">Contact the Developer</button>
+
+            <p style="color: rgb(19, 188, 109);margin-top: 20px;">&lt;solution&gt;</p>
+            <p style="color: rgb(17, 110, 67);font-weight: bold;font-size: 0.9rem;margin-right: 18px;margin-left: 18px;">Copy
+                the complete error code 🔽 <br>and send me (contact me ⬆️)</p>
+            <p style="color: rgb(19, 188, 109);">&lt;solution&gt;</p>
+
+            <!-- Iframe section to display error details -->
+            <iframe id="error-iframe"></iframe>
+        </div>
+    </div>
+</div>
+<script>
+    // Show page2 after 3 seconds
+    setTimeout(function() {
+        document.querySelector('.page1').style.display = 'none';
+        document.querySelector('.page2').style.display = 'block';
+    }, 3000);
+
+    function retry() {
+        if (navigator.onLine) {
+            window.location.href = "http://freecadapp2.000.pe/login_firebase/index.php";
+        } else {
+            alert("You are still offline. Please check your network connection.");
+        }
+    }
+
+    function contactDeveloper() {
+        window.location.href = "contact/contact.html";
+    }
+
+    // Get error message from query string if available
+    const params = new URLSearchParams(window.location.search);
+    const errorMessage = params.get('error');
+    if (errorMessage) {
+        document.getElementById('error-message').innerText = errorMessage;
+        // Display error message in the iframe
+        document.getElementById('error-iframe').srcdoc = `<p>${errorMessage}</p>`;
+    }
+</script>
+</body>
+</html>

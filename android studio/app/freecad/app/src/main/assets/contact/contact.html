@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline Page // FreeCAD App</title>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #260303; /* Default background color */
+            background-color: #1e1436; /* Colorful background */
+        }
+        .bg-cover {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            height: 150px;
+        }
+        .ambient-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+        }
+        h1 {
+            font-size: 30px;
+            color: #333; /* Default color */
+            color: #dc8100; /* Colorful */
+        }
+        p {
+            color: #555; /* Default color */
+            color: #009688; /* Colorful */
+        }
+        section {
+            display: block;
+            text-align: left;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Transparent white background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            animation: fadeIn 1s ease;
+        }
+        a {
+            color: #dc8100;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #333;
+            text-decoration: none;
+        }
+        button {
+            background-color: #c50357;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ae7133;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+            section {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="bg-cover bg-center h-32" style="background-image: url('img.png');">
+    <div class="ambient-overlay"></div>
+</div>
+<section>
+    <h1>You are offline !</h1>
+    <div>
+        <p style="color: #009688;">Hi, I am Akashdip Mahapatra.</p>
+        <p style="color: #009688;">My heart is Physics.</p>
+        <p style="color: #009688;">My body is Mechanical.</p>
+        <p style="color: #009688;">My brain is Coding.</p>
+        <br>
+        <p style="color: #009688;">I also love biology & mathematics.</p>
+        <br>
+        <p style="color: #009688;">&mdash; E = mc²</p>
+    </div>
+</section>
+<section>
+    <h1>Offline Page</h1>
+    <p>Check your network connection and try again.</p>
+    <button onclick="retry()">Retry</button>
+</section>
+<div>
+    <p style="color: #009688;">If Your internet connection is OK,BUT the problem still exist Wait for 1 hour</p>
+    <p style="color: #009688;">Then Take a Picture on the 🦖Error page - & send me </p>
+    <p style="color: #009688;">And then contact - WatsAPP : 7076033011</p>
+</div>
+</body>
+
+<script>
+    function retry() {
+        if (navigator.onLine) {
+            window.location.href = "http://freecadapp2.000.pe/index/index.html";
+        } else {
+            alert("You are still offline. Please check your network connection.");
+        }
+    }
+</script>
+
+</html>
