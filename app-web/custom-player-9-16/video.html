@@ -139,9 +139,83 @@
     .arrow.right {
       margin-left: 10px;
     }
+
+    .popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.popup-box {
+  background: #222;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+  max-width: 600px;
+  width: 90%;
+  transform: scale(0.9);
+  animation: popupScale 0.4s ease forwards;
+  position: relative;
+  border: 2px solid #3498db;
+}
+
+.popup-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  color: #bbb;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.popup-close:hover {
+  color: #fff;
+}
+
+@keyframes popupScale {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
   </style>
 </head>
 <body>
+
+  <!-- Custom Animated Popup -->
+<div id="animated-popup" class="popup-overlay">
+  <div class="popup-box">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <h2>🎓 Final-Year Announcement</h2>
+    <ul style="padding-left: 20px; font-size: 0.95rem; color: #ddd; line-height: 1.5;">
+      <li>This time I am a final year B.Tech Mechanical Engineering student.</li>
+      <li>And because I am a GitHub Campus Expert, I get the vouchers 🎟️.</li>
+      <li>So I give those vouchers to students who have a hunger to create something new.</li>
+      <li>After I pass out, it's not possible to get vouchers again, so this is a limited-time offer.</li>
+      <li>That’s why I set a 2-month (from this website creation date) deadline to complete your projects.</li>
+      <li>If students complete hard projects well, I may send the voucher within a week.</li>
+      <li>But once I pass out, my ID will likely expire, so I cannot send any more vouchers after that.</li>
+    </ul>
+  </div>
+</div>
 
 <div id="video-container">
   <iframe id="custom-video" width="100%" height="100%" src="https://www.youtube.com/embed/ttJNFAb-qiM?rel=0" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
@@ -170,6 +244,15 @@
 </div>
 
 <script>
+function closePopup() {
+  document.getElementById("animated-popup").style.display = "none";
+}
+
+window.addEventListener("load", function () {
+  document.getElementById("animated-popup").style.display = "flex";
+});
+
+  
   var videos = ["ttJNFAb-qiM","y8diupWNWKU","u4r4lkWfGhY", "G6RpiV9ZhA8", "pUlICwIoOtQ", "yiEQOujkESA", "9KHYR5ukCCI", "sxOqtqEJT4Y", "8-5SYQ9b-2Q", "frh-2E6pbMg", "N3b-F1nMrZc", "Bs_1-kK5F48", "w2EOF4k0_UQ", "zffHhSzOVpo", "SVulx5aiUTQ", "hp2iuWR_wA0", "hp2iuWR_wA0", "G6RpiV9ZhA8", "G6RpiV9ZhA8", "yiEQOujkESA", "yiEQOujkESA", "sxOqtqEJT4Y", "sxOqtqEJT4Y", "frh-2E6pbMg", "frh-2E6pbMg", "Bs_1-kK5F48", "Bs_1-kK5F48"]; // Video IDs
 //var videos = ["u4r4lkWfGhY", "-----------", "pUlICwIoOtQ", "-----------", "9KHYR5ukCCI", "-----------", "8-5SYQ9b-2Q", "-----------", "N3b-F1nMrZc", "-----------", "w2EOF4k0_UQ", "-----------", "SVulx5aiUTQ", "-----------", "hp2iuWR_wA0", "-----------", "G6RpiV9ZhA8", "-----------", "yiEQOujkESA", "-----------", "sxOqtqEJT4Y", "-----------", "frh-2E6pbMg", "-----------", "Bs_1-kK5F48"]; // Video IDs
   
