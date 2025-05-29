@@ -121,29 +121,58 @@
       opacity: 0;
     }
 
+    #popup-wrapper {
+      position: absolute;
+      top: 10%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      pointer-events: none;
+      z-index: 999;
+      height: 0;
+    }
+
     .popup {
-  position: absolute;
-  background: #333;
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 14px;
-  max-width: 200px;
-  text-align: center;
-  z-index: 999;
-  transform: scale(0.8);
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  pointer-events: none;
-}
-.popup.show {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
-}
-.hidden {
-  display: none;
-}
+      background: rgba(20, 20, 20, 0.95);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      max-width: 280px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 12px #3498db;
+      transform: scale(0.8);
+      opacity: 0;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      backdrop-filter: blur(8px);
+      pointer-events: auto;
+    }
+
+    .popup.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .popup-line {
+      width: 2px;
+      height: 50px;
+      background: #3498db;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .popup-line.show {
+      opacity: 1;
+    }
+
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 
@@ -176,7 +205,10 @@
     </div>
   </div>
 
-  <div id="popup" class="popup hidden"></div>
+  <div id="popup-wrapper">
+    <div id="popup" class="popup hidden"></div>
+    <div id="popup-line" class="popup-line hidden"></div>
+  </div>
 
   <div id="loading-container">
     <div id="loading-bar">
@@ -234,7 +266,6 @@
       }, 800);
     }
 
-    // Toggle "more" section
     let display = 0;
     const div = document.getElementById('main');
     function hideShow() {
@@ -249,49 +280,51 @@
 
     updateLoading();
 
+    // === Popup Logic ===
     const popup = document.getElementById("popup");
+    const popupLine = document.getElementById("popup-line");
 
-document.querySelectorAll('.logo').forEach(img => {
-  const tech = img.alt.split(" ")[0].toUpperCase(); // crude tech name
+    const descriptions = {
+      "HTML": "HTML use for web-UI.",
+      "CSS": "CSS use for web-UI.",
+      "JAVASCRIPT": "JavaScript use for checking the login/signup form before PHP.",
+      "PHP": "PHP connects with SQL Remote database.",
+      "SQL": "SQL for Login and Signup.",
+      "SMTP": "Login OTP using PHP Mailer.",
+      "JAVA": "Used WebView in Java to embed the webpage in Android app.",
+      "XML": "XML used in JAVA layouts.",
+      "FIREBASE": "Firebase used for temporary authentication.",
+      "PHPMAILER": "PHPMailer sends OTP via PHP for login.",
+      "API": "Used YouTube iframe API."
+    };
 
-  // Add descriptions manually
-  const info = {
-    "HTML": "HTML use for web-UI.",
-    "CSS": "CSS use for web-UI.",
-    "JavaScript": "JavaScript use for check the login and signup form before PHP.",
-    "PHP": "PHP connect with SQL Remote database.",
-    "SQL": "SQL for Login and Signup.",
-    "SMTP": "Login OTP using PHP Mailer.",
-    "JAVA": "Used WebView in Java to embed the webpage directly in my Android app.",
-    "XML": "XML use in JAVA.",
-    "FIREBASE": "Firebase use for Temp authentication.",
-    "PHPMAILER": "PHPMailer sends emails via PHP for Log.In.",
-    "API": "youtube iframe api."
-  };
+    document.querySelectorAll('.logo').forEach(img => {
+      img.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const tech = img.alt.split(" ")[0].toUpperCase();
+        const infoText = descriptions[tech] || "No info available.";
 
-  const infoText = info[tech] || "No info available.";
+        popup.innerText = infoText;
+        popup.classList.remove("hidden");
+        popupLine.classList.remove("hidden");
 
-  img.addEventListener("click", (e) => {
-    popup.innerText = infoText;
-    const rect = img.getBoundingClientRect();
+        setTimeout(() => {
+          popup.classList.add("show");
+          popupLine.classList.add("show");
+        }, 10);
 
-    popup.style.left = `${rect.left + rect.width / 2}px`;
-    popup.style.top = `${rect.top - 10}px`;
-    popup.classList.remove("hidden");
-    popup.classList.add("show");
+        document.addEventListener("click", hidePopupOnce, { once: true });
+      });
+    });
 
-    setTimeout(() => {
-      document.addEventListener("click", hidePopupOnce, { once: true });
-    }, 10);
-
-    e.stopPropagation(); // prevent body from closing it immediately
-  });
-});
-
-function hidePopupOnce() {
-  popup.classList.remove("show");
-  setTimeout(() => popup.classList.add("hidden"), 300);
-}
+    function hidePopupOnce() {
+      popup.classList.remove("show");
+      popupLine.classList.remove("show");
+      setTimeout(() => {
+        popup.classList.add("hidden");
+        popupLine.classList.add("hidden");
+      }, 400);
+    }
   </script>
 </body>
 </html>
