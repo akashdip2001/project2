@@ -64,31 +64,45 @@
     }
 
     #loading-bar {
-      width: 0;
-      height: 43px;
-      background: linear-gradient(90deg, #3498db, #87CEEB);
-      border-radius: 4px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      transition: width 0.3s ease;
+    width: 0;
+    height: 43px;
+    background: linear-gradient(90deg, #3498db, #87CEEB);
+    border: 2px solid rgba(0, 0, 0, 0.2); /* Light border */
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     }
 
     #loading-button {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, 0);
-      height: 100%;
-      width: 100%;
-      font-weight: bold;
-      color: white;
-      background: transparent;
-      border: none;
-      z-index: 2;
-      pointer-events: auto;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 2;
+    font-size: 16px;
+    font-weight: 900;
+    background: transparent;
+    border: none;
+    pointer-events: auto;
+    cursor: pointer;
+    color: transparent;
+    -webkit-text-stroke: 1.5px #fff; /* Bold outlined text */
+    transition: color 0.3s ease;
+    }
+
+    #loading-bar::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: 900;
+    pointer-events: none;
+    z-index: 1;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
     }
 
     .more {
@@ -211,10 +225,11 @@
   </div>
 
   <div id="loading-container">
-    <div id="loading-bar">
-      <button id="loading-button">STOP & Click</button>
-    </div>
+  <div id="loading-bar" data-text="STOP & Click">
+    <button id="loading-button">STOP & Click</button>
   </div>
+</div>
+
 
   <script>
     let progress = 0;
@@ -222,20 +237,25 @@
     let isStopped = false;
 
     function updateLoading() {
-      if (!paused && !isStopped) {
-        const loadingBar = document.getElementById('loading-bar');
-        loadingBar.style.width = `${progress}%`;
+  if (!paused && !isStopped) {
+    const loadingBar = document.getElementById('loading-bar');
+    loadingBar.style.width = `${progress}%`;
 
-        if (progress < 100) {
-          progress++;
-          setTimeout(updateLoading, 30);
-        } else {
-          setTimeout(() => {
-            window.location.href = '../custom-player-9-16/video.html';
-          }, 3000);
-        }
-      }
+    // Update color fill via a gradient mask based on progress
+    const button = document.getElementById('loading-button');
+    button.style.color = `rgba(255, 255, 255, ${progress / 100})`;
+
+    if (progress < 100) {
+      progress++;
+      setTimeout(updateLoading, 30);
+    } else {
+      setTimeout(() => {
+        window.location.href = '../custom-player-9-16/video.html';
+      }, 3000);
     }
+  }
+}
+
 
     const btn = document.getElementById('loading-button');
     btn.onclick = () => {
