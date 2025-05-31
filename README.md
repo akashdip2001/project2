@@ -28,3 +28,7 @@ Last modify
 project2/ --> project2/index/index.html --> project2/app-web/password-html/index.html --> index2_brave.html --> index3_loding.html
 ```
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f174665d-346d-48ae-a041-d3ee27f0abc9" alt="Image 1" width="76%" style="margin-right: 10px;"/>
+  <img src="https://github.com/user-attachments/assets/24799b2b-3564-47df-a48b-2f9b4522dcd1" alt="Image 2" width="19.5%" style="margin-right: 10px;"/>
+</p>
