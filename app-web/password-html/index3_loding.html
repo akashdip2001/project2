@@ -63,82 +63,32 @@
       transform: translateX(-50%);
     }
 
-    #loading-wrapper {
-  width: 100%;
-  max-width: 300px;
-  height: 43px;
-  border: 2px solid #000;
-  border-radius: 6px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  background: transparent;
-}
-    
-   #loading-bar {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #3498db, #87CEEB);
-  transition: width 0.3s ease;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-    .loading-text-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  font-size: 16px;
-  font-weight: 900;
-}
-
-    .loading-text-outline {
-  color: transparent;
-  -webkit-text-stroke: 1.5px white;
-  position: absolute;
-}
-
-.loading-text-fill {
-  color: white;
-  position: absolute;
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 0.3s ease;
-}
-
-    #loading-button {
-    position: relative;
-    z-index: 2;
-    font-size: 16px;
-    font-weight: 900;
-    background: transparent;
-    border: none;
-    pointer-events: auto;
-    cursor: pointer;
-    color: transparent;
-    -webkit-text-stroke: 1.5px #fff; /* Bold outlined text */
-    transition: color 0.3s ease;
+    #loading-bar {
+      width: 0;
+      height: 43px;
+      background: linear-gradient(90deg, #3498db, #87CEEB);
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: width 0.3s ease;
     }
 
-    #loading-bar::before {
-    content: attr(data-text);
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-weight: 900;
-    pointer-events: none;
-    z-index: 1;
-    white-space: nowrap;
-    transition: opacity 0.3s ease;
+    #loading-button {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      height: 100%;
+      width: 100%;
+      font-weight: bold;
+      color: white;
+      background: transparent;
+      border: none;
+      z-index: 2;
+      pointer-events: auto;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     .more {
@@ -261,15 +211,10 @@
   </div>
 
   <div id="loading-container">
-  <div id="loading-wrapper">
-    <div id="loading-bar"></div>
-    <div class="loading-text-wrapper">
-      <span class="loading-text-outline">STOP & Click</span>
-      <span class="loading-text-fill">STOP & Click</span>
+    <div id="loading-bar">
+      <button id="loading-button">STOP & Click</button>
     </div>
   </div>
-</div>
-
 
   <script>
     let progress = 0;
@@ -277,23 +222,20 @@
     let isStopped = false;
 
     function updateLoading() {
-  if (!paused && !isStopped) {
-    const loadingBar = document.getElementById('loading-bar');
-    const textFill = document.querySelector('.loading-text-fill');
+      if (!paused && !isStopped) {
+        const loadingBar = document.getElementById('loading-bar');
+        loadingBar.style.width = `${progress}%`;
 
-    loadingBar.style.width = `${progress}%`;
-    textFill.style.clipPath = `inset(0 ${100 - progress}% 0 0)`;
-
-    if (progress < 100) {
-      progress++;
-      setTimeout(updateLoading, 30);
-    } else {
-      setTimeout(() => {
-        window.location.href = '../custom-player-9-16/video.html';
-      }, 3000);
+        if (progress < 100) {
+          progress++;
+          setTimeout(updateLoading, 30);
+        } else {
+          setTimeout(() => {
+            window.location.href = '../custom-player-9-16/video.html';
+          }, 3000);
+        }
+      }
     }
-  }
-}
 
     const btn = document.getElementById('loading-button');
     btn.onclick = () => {
